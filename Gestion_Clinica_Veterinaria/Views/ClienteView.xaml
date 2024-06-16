@@ -3,38 +3,85 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:fa="http://schemas.awesome.incremented/wpf/xaml/fontawesome.sharp"         
+             xmlns:viewmodels="clr-namespace:Gestion_Clinica_Veterinaria.ViewModels"
              xmlns:local="clr-namespace:Gestion_Clinica_Veterinaria.Views"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800"
+             Background="Transparent">
+
+    <UserControl.DataContext>
+        <viewmodels:ClienteViewModel/>
+    </UserControl.DataContext>
+
+    <UserControl.Resources>
+        <DataTemplate DataType="{x:Type viewmodels:ConsultarClienteViewModel}">
+            <local:ConsultarClienteView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodels:CrearClienteViewModel}">
+            <local:CrearClienteView/>
+        </DataTemplate>
+    </UserControl.Resources>
+
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>
-        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="35"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel>
-            <TextBlock Text="Nombre" Foreground="White" />
-            <TextBox x:Name="NombreTextBox" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        </StackPanel>
-        <StackPanel Grid.Column="1">
-            <TextBlock Text="DNI" Foreground="White" />
-            <TextBox x:Name="DNITextBox" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        </StackPanel>
-        <StackPanel Grid.Column="2">
-            <TextBlock Text="Telefono" Foreground="White" />
-            <TextBox x:Name="TelefonoTextBox" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        </StackPanel>
-        <StackPanel Grid.Row="1">
-            <TextBlock Text="CodigoPostal" Foreground="White" />
-            <TextBox x:Name="CodigoPostalTextBox" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        </StackPanel>
-        <StackPanel Grid.Row="1" Grid.Column="1">
-            <Button x:Name="GuardarButton" Content="Guardar" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Width="75" Click="GuardarButton_Click"/>
-        </StackPanel>
+
+        <Border Grid.Row="0" CornerRadius="10,0,0,10">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,0.7">
+                    <GradientStop Color="{StaticResource secondaryBackColor1}" Offset="0" />
+                    <GradientStop Color="{StaticResource secondaryBackColor2}" Offset="1" />
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0"  Orientation="Horizontal" VerticalAlignment="Center">
+                    <fa:IconImage Icon="User" Width="20" Height="20" Foreground="{StaticResource color4}" Margin="35,0,10,0"/>
+                    <TextBlock Text="CLIENTES" FontSize="17" Foreground="{StaticResource titleColor2}" FontFamily="Montserrat" FontWeight="Medium" VerticalAlignment="Center"/>
+                </StackPanel>
+
+                <RadioButton Style="{StaticResource menuButton}"
+                             Tag="{StaticResource color6}"
+                             IsChecked="True"
+                             Command="{Binding ConsultarComand}"
+                             Grid.Column="2"
+                             Height="25"
+                             Margin="-5,5,0,5">
+
+                    <StackPanel Orientation="Horizontal">
+                        <fa:IconImage Icon="HackerNews" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="CONSULTAR" Style="{StaticResource menuButtonText}"/>
+                    </StackPanel>
+                </RadioButton>
+
+                <RadioButton Style="{StaticResource menuButton}"
+                             Tag="{StaticResource color9}"
+                             Command="{Binding CrearComand}"
+                             Grid.Column="3"
+                             Height="25"
+                             Margin="-5,5,0,5">
+
+                    <StackPanel Orientation="Horizontal">
+                        <fa:IconImage Icon="Certificate" Style="{StaticResource menuButtonIcon}"/>
+                        <TextBlock Text="CREAR" Style="{StaticResource menuButtonText}"/>
+                    </StackPanel>
+                </RadioButton>
+            </Grid>
+        </Border>
+
+        <ContentControl Content="{Binding CurrentChildView}"
+            Grid.Row="1"
+            Margin="2"/>
     </Grid>
 </UserControl>

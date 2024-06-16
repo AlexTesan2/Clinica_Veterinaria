@@ -28,7 +28,15 @@ namespace Gestion_Clinica_Veterinaria.Views
             InitializeComponent();
         }
 
-        private void GuardarButton_Click(object sender, RoutedEventArgs e)
+
+
+
+
+
+
+
+
+        /*private void GuardarButton_Click(object sender, RoutedEventArgs e)
         {
             var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
             optionsBuilder.UseSqlServer("Data Source=DESKTOP-1DSINV3;Initial Catalog=Veterinaria;Integrated Security=True;TrustServerCertificate=true");
@@ -57,22 +65,6 @@ namespace Gestion_Clinica_Veterinaria.Views
                 TelefonoTextBox.Text = "";
                 CodigoPostalTextBox.Text = "";
             }
-
-            /*
-             var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-1DSINV3;Initial Catalog=PruebaConexion;Integrated Security=True;TrustServerCertificate=true");
-
-                using (var context = new ApplicationDbContext(optionsBuilder.Options))
-                {
-                    context.Database.EnsureCreated();
-
-                    var cliente = new Cliente { Nombre = NombreTextBox.Text };
-                    context.Clientes.Add(cliente);
-                    context.SaveChanges();
-
-                    NombreTextBox.Text = ""; // Borra el contenido del TextBox
-                }
-             */
-        }
+        }*/
     }
 }

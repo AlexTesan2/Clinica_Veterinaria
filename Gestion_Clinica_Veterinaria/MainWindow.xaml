@@ -15,10 +15,13 @@
     <!--
         d:DataContext="{d:DesignInstance Type=viewmodels:MainWindowModel}"
     -->
+    
+    <!--Vista por defecto: la MainWindow-->
     <Window.DataContext>
         <viewmodels:MainWindowModel/>
     </Window.DataContext>
 
+    <!--Estas vistas se van a utilizar, se incorporan como recursos-->
     <Window.Resources>
         <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}">
             <local:HomeView/>
@@ -66,7 +69,7 @@
                 </Border.Background>
 
                 <StackPanel>
-                    <!--Logo-->
+                    <!--Logo de la empresa-->
                     <StackPanel Orientation="Horizontal"
                                 Height="35"
                                 Margin="15,25,0,40">

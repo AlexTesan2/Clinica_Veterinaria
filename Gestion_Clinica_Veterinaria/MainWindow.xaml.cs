@@ -80,16 +80,6 @@ namespace Gestion_Clinica_Veterinaria
 
 
 
-
-
-
-
-
-
-
-
-
-
         public static void CrearBD()
         {
             //var connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
