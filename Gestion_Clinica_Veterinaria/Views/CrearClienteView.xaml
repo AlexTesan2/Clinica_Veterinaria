@@ -7,34 +7,67 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="*"/>
-        </Grid.RowDefinitions>
-        <StackPanel>
-            <TextBlock Text="Nombre" Foreground="White" />
-            <TextBox x:Name="NombreTextBox" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+
+
+        <StackPanel Grid.Column="0" Grid.Row="0">
+            <TextBlock Text="Nombre" Foreground="White" Margin="5,15,15,5" Width="88"></TextBlock>
+            <TextBox x:Name="NombreTextBox" Height="23" TextWrapping="Wrap" Margin="30,0,15,0" Width="120"/>
         </StackPanel>
-        <StackPanel Grid.Column="1">
-            <TextBlock Text="DNI" Foreground="White" />
-            <TextBox x:Name="DNITextBox" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <StackPanel Grid.Column="1" Grid.Row="0">
+            <TextBlock Text="DNI" Foreground="White" Margin="5,15,15,5" Width="88"/>
+            <TextBox x:Name="DNITextBox" Height="23" Margin="30,0,15,0" TextWrapping="Wrap" Width="120"/>
         </StackPanel>
-        <StackPanel Grid.Column="2">
-            <TextBlock Text="Telefono" Foreground="White" />
-            <TextBox x:Name="TelefonoTextBox" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <StackPanel Grid.Column="2" Grid.Row="0">
+            <TextBlock Text="Email" Foreground="White" Margin="5,15,15,5" Width="88"/>
+            <TextBox x:Name="EmailTextBox" Height="23" TextWrapping="Wrap" Margin="30,0,15,0" Width="120"/>
         </StackPanel>
-        <StackPanel Grid.Row="1">
-            <TextBlock Text="CodigoPostal" Foreground="White" />
-            <TextBox x:Name="CodigoPostalTextBox" HorizontalAlignment="Left" Height="23" Margin="10,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+
+        <StackPanel Grid.Column="0" Grid.Row="1">
+            <TextBlock Text="Telefono1" PreviewTextInput="Num_PreviewTextInput" Foreground="White" Margin="5,15,15,5" Width="88"/>
+                <TextBox x:Name="Telefono1TextBox" Height="23" TextWrapping="Wrap" Margin="30,0,15,0" Width="120"/>
         </StackPanel>
-        <StackPanel Grid.Row="1" Grid.Column="1">
-            <Button x:Name="GuardarButton" Content="Guardar" HorizontalAlignment="Left" Margin="10,38,0,0" VerticalAlignment="Top" Width="75" Click="GuardarButton_Click"/>
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <TextBlock Text="Telefono2" PreviewTextInput="Num_PreviewTextInput" Foreground="White" Margin="5,15,15,5" TextWrapping="Wrap" Width="88"/>
+            <TextBox x:Name="Telefono2TextBox" Height="23" TextWrapping="Wrap" Margin="30,0,15,0" Width="120"/>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="1">
+            <TextBlock Text="CodigoPostal" PreviewTextInput="Num_PreviewTextInput" Foreground="White" Margin="5,15,15,5" TextWrapping="Wrap" Width="88"/>
+            <TextBox x:Name="CodigoPostalTextBox" Height="23" TextWrapping="Wrap" Margin="30,0,15,0" Width="120"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="0" Grid.Row="2">
+            <TextBlock Text="Provincia" Foreground="White" Margin="5,15,15,5" Width="88"/>
+            <ComboBox x:Name="ProvinciaComboBox" 
+                      DisplayMemberPath="NomProvincia"
+                      SelectedValuePath="IdProvincia"
+                      Width="120"
+                      Margin="30,0,15,0"
+                      Foreground="Black"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="2">
+            <TextBlock Text="Ciudad" Foreground="White" Margin="5,15,15,5" Width="88"/>
+            <TextBox x:Name="CiudadTextBox" Height="23" TextWrapping="Wrap" Margin="30,0,15,0" Width="120"/>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="2">
+            <TextBlock Text="Direccion" Foreground="White" Margin="5,15,15,5" Width="88"/>
+            <TextBox x:Name="DireccionTextBox" Height="23" TextWrapping="Wrap" Margin="30,0,15,0" Width="120"/>
+        </StackPanel>
+
+
+        <StackPanel Grid.Column="1" Grid.Row="3">
+            <Button x:Name="GuardarButton" Content="GUARDAR CLIENTE" Click="GuardarButton_Click" Width="120" Background="{StaticResource color9}"/>
         </StackPanel>
     </Grid>
 </UserControl>

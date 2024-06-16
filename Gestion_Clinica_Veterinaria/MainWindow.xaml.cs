@@ -17,6 +17,7 @@ using System.Runtime.InteropServices;
 using System.Windows.Interop;
 using MouseEventArgs = System.Windows.Forms.MouseEventArgs;
 using Application = System.Windows.Application;
+using Microsoft.VisualBasic;
 
 namespace Gestion_Clinica_Veterinaria
 {
@@ -223,9 +224,22 @@ namespace Gestion_Clinica_Veterinaria
                     context.Razas.Add(Uron);
                     var otro = new RazaModel { EspecieId = 5, NomRaza = "Otro" };
                     context.Razas.Add(otro);
-                        
-                        
-                        
+
+                    var desarrollador = new ClienteModel
+                    {
+                        NomCliente = "Alex",
+                        Ciudad = "Zaragoza",
+                        CodPostal = 5004,
+                        Comentario = "Soy el programador",
+                        Direccion = "No te importa",
+                        DNI = "0724545",
+                        Email = "email",
+                        Telefono1=12345,
+                        Telefono2=67890,
+                        ProvinciaId = 5,
+                        FechaAlta = DateAndTime.Today
+                    };
+                    context.Clientes.Add(desarrollador);
                         
                     context.SaveChanges();
 

@@ -8,5 +8,6 @@ namespace Gestion_Clinica_Veterinaria.ViewModels
 {
     public class CrearClienteViewModel : ViewModelBase
     {
+
     }
 }

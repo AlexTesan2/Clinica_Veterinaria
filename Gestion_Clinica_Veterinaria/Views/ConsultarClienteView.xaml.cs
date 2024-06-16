@@ -12,17 +12,45 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Gestion_Clinica_Veterinaria.DB;
+using Gestion_Clinica_Veterinaria.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Gestion_Clinica_Veterinaria.Views
 {
-    /// <summary>
-    /// Lógica de interacción para ConsultarClienteView.xaml
-    /// </summary>
     public partial class ConsultarClienteView : UserControl
     {
+        private List<ClienteModel> _clientes;
+
         public ConsultarClienteView()
         {
             InitializeComponent();
+            CargarClientes();
+        }
+
+        private void CargarClientes()
+        {
+            var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
+            optionsBuilder.UseSqlServer("Data Source=DESKTOP-1DSINV3;Initial Catalog=Veterinaria;Integrated Security=True;TrustServerCertificate=true");
+
+            using (var context = new ApplicationDbContext(optionsBuilder.Options))
+            {
+                _clientes = context.Clientes.ToList();
+                ClientesDataGrid.ItemsSource = _clientes;
+            }
+        }
+
+        private void BuscarTextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            var filtroNombre = BuscarNombreTextBox.Text.ToLower();
+            var filtroDni = BuscarDniTextBox.Text.ToLower();
+            
+            var clientesFiltrados = _clientes.Where(c => 
+                (string.IsNullOrWhiteSpace(filtroNombre) || c.NomCliente.ToLower().Contains(filtroNombre)) &&
+                (string.IsNullOrWhiteSpace(filtroDni) || c.DNI.ToLower().Contains(filtroDni))
+            ).ToList();
+            
+            ClientesDataGrid.ItemsSource = clientesFiltrados;
         }
     }
 }
