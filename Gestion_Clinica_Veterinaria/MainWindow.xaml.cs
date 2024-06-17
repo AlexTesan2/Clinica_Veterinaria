@@ -236,10 +236,10 @@ namespace Gestion_Clinica_Veterinaria
                         Email = "email",
                         Telefono1=12345,
                         Telefono2=67890,
-                        ProvinciaId = 5,
+                        Provincia = "Zaragoza",
                         FechaAlta = DateAndTime.Today
                     };
-                    context.Clientes.Add(desarrollador);
+                    //context.Clientes.Add(desarrollador);
                         
                     context.SaveChanges();
 

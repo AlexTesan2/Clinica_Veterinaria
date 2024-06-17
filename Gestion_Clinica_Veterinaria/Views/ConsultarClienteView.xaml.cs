@@ -52,5 +52,42 @@ namespace Gestion_Clinica_Veterinaria.Views
             
             ClientesDataGrid.ItemsSource = clientesFiltrados;
         }
+
+        private void EditarButton_Click(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            var cliente = button.Tag as ClienteModel;
+            if (cliente != null)
+            {
+                var editarClienteView = new EditarClienteView(cliente);
+                var window = new Window
+                {
+                    Content = editarClienteView,
+                    Title = "Editar Cliente",
+                    SizeToContent = SizeToContent.WidthAndHeight
+                };
+                window.ShowDialog();
+                CargarClientes();
+            }
+        }
+
+        private void EliminarButton_Click(object sender, RoutedEventArgs e)
+        {
+            var button = sender as Button;
+            var cliente = button.Tag as ClienteModel;
+            if (cliente != null)
+            {
+                var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
+                optionsBuilder.UseSqlServer("Data Source=DESKTOP-1DSINV3;Initial Catalog=Veterinaria;Integrated Security=True;TrustServerCertificate=true");
+
+                using (var context = new ApplicationDbContext(optionsBuilder.Options))
+                {
+                    context.Clientes.Remove(cliente);
+                    context.SaveChanges();
+                }
+
+                CargarClientes();
+            }
+        }
     }
 }

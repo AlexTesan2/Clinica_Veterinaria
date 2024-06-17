@@ -20,7 +20,7 @@ namespace Gestion_Clinica_Veterinaria.Models
         public int? Telefono2 { get; set; }
 
         //public ProvinciaModel ProvinciaDelUsuario { get; set; }
-        public int? ProvinciaId { get; set; }
+        public string? Provincia { get; set; }
         public string? Ciudad { get; set; }
         public string? Direccion { get; set; }
         public int? CodPostal { get; set; }

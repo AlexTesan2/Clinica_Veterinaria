@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 C:\Users\alext\Desktop\AGUSTIN_2º\AAD\Gestion_Clinica_Veterinaria\Gestion_Clinica_Veterinaria\App.xaml
-9-1884142912
+101896940837
 
-35-1194897000
+361448553898
 236-445585139
-MainWindow.xaml;Resources\Styles\ButtonStyless.xaml;Resources\Styles\Colors.xaml;Views\CarView.xaml;Views\ClienteView.xaml;Views\ConsultarClienteView.xaml;Views\CrearClienteView.xaml;Views\CustomerView.xaml;Views\HomeView.xaml;
+MainWindow.xaml;Resources\Styles\ButtonStyless.xaml;Resources\Styles\Colors.xaml;Views\CarView.xaml;Views\ClienteView.xaml;Views\ConsultarClienteView.xaml;Views\CrearClienteView.xaml;Views\CustomerView.xaml;Views\EditarClienteView.xaml;Views\HomeView.xaml;
 
-False
+True
 

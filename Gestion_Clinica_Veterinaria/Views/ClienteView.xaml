@@ -60,7 +60,7 @@
                              Margin="-5,5,0,5">
 
                     <StackPanel Orientation="Horizontal">
-                        <fa:IconImage Icon="HackerNews" Style="{StaticResource menuButtonIcon}"/>
+                        <fa:IconImage Icon="AddressCard" Style="{StaticResource menuButtonIcon}"/>
                         <TextBlock Text="CONSULTAR" Style="{StaticResource menuButtonText}"/>
                     </StackPanel>
                 </RadioButton>

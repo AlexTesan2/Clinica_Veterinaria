@@ -50,7 +50,7 @@
             <TextBlock Text="Provincia" Foreground="White" Margin="5,15,15,5" Width="88"/>
             <ComboBox x:Name="ProvinciaComboBox" 
                       DisplayMemberPath="NomProvincia"
-                      SelectedValuePath="IdProvincia"
+                      SelectedValuePath="NomProvincia"
                       Width="120"
                       Margin="30,0,15,0"
                       Foreground="Black"/>

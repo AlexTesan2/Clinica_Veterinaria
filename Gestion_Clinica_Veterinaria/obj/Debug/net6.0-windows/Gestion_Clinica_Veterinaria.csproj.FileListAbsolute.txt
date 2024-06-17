@@ -69,6 +69,7 @@ C:\Users\alext\Desktop\AGUSTIN_2º\AAD\Gestion_Clinica_Veterinaria\Gestion_Clini
 C:\Users\alext\Desktop\AGUSTIN_2º\AAD\Gestion_Clinica_Veterinaria\Gestion_Clinica_Veterinaria\obj\Debug\net6.0-windows\Views\ConsultarClienteView.g.cs
 C:\Users\alext\Desktop\AGUSTIN_2º\AAD\Gestion_Clinica_Veterinaria\Gestion_Clinica_Veterinaria\obj\Debug\net6.0-windows\Views\CrearClienteView.g.cs
 C:\Users\alext\Desktop\AGUSTIN_2º\AAD\Gestion_Clinica_Veterinaria\Gestion_Clinica_Veterinaria\obj\Debug\net6.0-windows\Views\CustomerView.g.cs
+C:\Users\alext\Desktop\AGUSTIN_2º\AAD\Gestion_Clinica_Veterinaria\Gestion_Clinica_Veterinaria\obj\Debug\net6.0-windows\Views\EditarClienteView.g.cs
 C:\Users\alext\Desktop\AGUSTIN_2º\AAD\Gestion_Clinica_Veterinaria\Gestion_Clinica_Veterinaria\obj\Debug\net6.0-windows\Views\HomeView.g.cs
 C:\Users\alext\Desktop\AGUSTIN_2º\AAD\Gestion_Clinica_Veterinaria\Gestion_Clinica_Veterinaria\obj\Debug\net6.0-windows\App.g.cs
 C:\Users\alext\Desktop\AGUSTIN_2º\AAD\Gestion_Clinica_Veterinaria\Gestion_Clinica_Veterinaria\obj\Debug\net6.0-windows\GeneratedInternalTypeHelper.g.cs
@@ -81,6 +82,7 @@ C:\Users\alext\Desktop\AGUSTIN_2º\AAD\Gestion_Clinica_Veterinaria\Gestion_Clini
 C:\Users\alext\Desktop\AGUSTIN_2º\AAD\Gestion_Clinica_Veterinaria\Gestion_Clinica_Veterinaria\obj\Debug\net6.0-windows\Views\ConsultarClienteView.baml
 C:\Users\alext\Desktop\AGUSTIN_2º\AAD\Gestion_Clinica_Veterinaria\Gestion_Clinica_Veterinaria\obj\Debug\net6.0-windows\Views\CrearClienteView.baml
 C:\Users\alext\Desktop\AGUSTIN_2º\AAD\Gestion_Clinica_Veterinaria\Gestion_Clinica_Veterinaria\obj\Debug\net6.0-windows\Views\CustomerView.baml
+C:\Users\alext\Desktop\AGUSTIN_2º\AAD\Gestion_Clinica_Veterinaria\Gestion_Clinica_Veterinaria\obj\Debug\net6.0-windows\Views\EditarClienteView.baml
 C:\Users\alext\Desktop\AGUSTIN_2º\AAD\Gestion_Clinica_Veterinaria\Gestion_Clinica_Veterinaria\obj\Debug\net6.0-windows\Views\HomeView.baml
 C:\Users\alext\Desktop\AGUSTIN_2º\AAD\Gestion_Clinica_Veterinaria\Gestion_Clinica_Veterinaria\obj\Debug\net6.0-windows\Gestion_Clinica_Veterinaria.g.resources
 C:\Users\alext\Desktop\AGUSTIN_2º\AAD\Gestion_Clinica_Veterinaria\Gestion_Clinica_Veterinaria\obj\Debug\net6.0-windows\Gestion_Clinica_Veterinaria.GeneratedMSBuildEditorConfig.editorconfig

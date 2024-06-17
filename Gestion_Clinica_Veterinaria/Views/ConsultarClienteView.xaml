@@ -36,8 +36,23 @@
                     <DataGridTextColumn Header="Email" Binding="{Binding Email}" Width="*"/>
                     <DataGridTextColumn Header="Telefono1" Binding="{Binding Telefono1}" Width="*"/>
                     <DataGridTextColumn Header="Telefono2" Binding="{Binding Telefono2}" Width="*"/>
+                    <DataGridTextColumn Header="Provincia" Binding="{Binding Provincia}" Width="*"/>
                     <DataGridTextColumn Header="Ciudad" Binding="{Binding Ciudad}" Width="*"/>
                     <DataGridTextColumn Header="Direccion" Binding="{Binding Direccion}" Width="*"/>
+                    <DataGridTemplateColumn Header="Editar" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Editar" Click="EditarButton_Click" Tag="{Binding}" Background="Aquamarine"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Eliminar" Width="*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Eliminar" Click="EliminarButton_Click" Tag="{Binding}" Background="Red"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
         </StackPanel>

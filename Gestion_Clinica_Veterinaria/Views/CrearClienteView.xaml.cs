@@ -46,11 +46,6 @@ namespace Gestion_Clinica_Veterinaria.Views
 
             using (var context = new ApplicationDbContext(optionsBuilder.Options))
             {
-                int? provinciaId = 1;
-                if (ProvinciaComboBox.SelectedValue != null && int.TryParse(ProvinciaComboBox.SelectedValue.ToString(), out int id))
-                {
-                    provinciaId = id;
-                }
 
                 context.Database.EnsureCreated();
                 var cliente = new ClienteModel
@@ -62,7 +57,7 @@ namespace Gestion_Clinica_Veterinaria.Views
                     Telefono2 = string.IsNullOrWhiteSpace(Telefono2TextBox.Text) ? 0 : int.Parse(Telefono2TextBox.Text),
                     CodPostal = string.IsNullOrWhiteSpace(CodigoPostalTextBox.Text) ? 0 : int.Parse(CodigoPostalTextBox.Text),
                     Ciudad = string.IsNullOrWhiteSpace(CiudadTextBox.Text) ? "" : CiudadTextBox.Text,
-                    ProvinciaId = provinciaId,
+                    Provincia = ProvinciaComboBox.SelectedValue?.ToString(),
                     Direccion = string.IsNullOrWhiteSpace(DireccionTextBox.Text) ? "" : DireccionTextBox.Text,
                     FechaAlta = DateTime.Now,
                     Comentario = ""
