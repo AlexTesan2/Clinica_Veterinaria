@@ -14,6 +14,7 @@ namespace Gestion_Clinica_Veterinaria.Models
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id_Especie { get; set; }
         public string NomEspecie { get; set; }
+        public ICollection<AnimalModel> Animales { get; set; }
         List <RazaModel> SusRazas { get; set; }
     }
 }

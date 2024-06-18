@@ -28,6 +28,25 @@ namespace Gestion_Clinica_Veterinaria.DB
         public DbSet<TipoPeloModel> TipoPelos { get; set; }
         public DbSet<TipoProductoModelo> TipoProductos { get; set; }
 
+        //protected override void OnModelCreating(ModelBuilder modelBuilder)
+        //{
+        //    base.OnModelCreating(modelBuilder);
 
+        //    // Configurar las relaciones de las claves foráneas
+        //    modelBuilder.Entity<AnimalModel>()
+        //        .HasOne(a => a.Especie)
+        //        .WithMany()
+        //        .HasForeignKey(a => a.IdRaza);
+
+        //    modelBuilder.Entity<AnimalModel>()
+        //        .HasOne(a => a.Raza)
+        //        .WithMany()
+        //        .HasForeignKey(a => a.IdRaza);
+
+        //    //modelBuilder.Entity<AnimalModel>()
+        //    //    .HasOne(a => a.ClienteDelAnimal)
+        //    //    .WithMany(c => c.ListaMascotasDelCliente)
+        //    //    .HasForeignKey(a => a.IdClienteDelAnimal);
+        //}
     }
 }

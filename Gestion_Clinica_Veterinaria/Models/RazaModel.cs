@@ -16,5 +16,6 @@ namespace Gestion_Clinica_Veterinaria.Models
         public string NomRaza { get; set; }
         //public EspecieModel Especie { get; set; }
         public int EspecieId { get; set; }
+        public ICollection<AnimalModel> Animales { get; set; }
     }
 }

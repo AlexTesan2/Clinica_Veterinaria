@@ -15,7 +15,7 @@
     <!--
         d:DataContext="{d:DesignInstance Type=viewmodels:MainWindowModel}"
     -->
-    
+
     <!--Vista por defecto: la MainWindow-->
     <Window.DataContext>
         <viewmodels:MainWindowModel/>
@@ -23,20 +23,17 @@
 
     <!--Estas vistas se van a utilizar, se incorporan como recursos-->
     <Window.Resources>
-        <DataTemplate DataType="{x:Type viewmodels:HomeViewModel}">
-            <local:HomeView/>
-        </DataTemplate>
-
-        <DataTemplate DataType="{x:Type viewmodels:CustomerViewModel}">
-            <local:CustomerView/>
-        </DataTemplate>
-
-        <DataTemplate DataType="{x:Type viewmodels:CarViewModel}">
-            <local:CarView/>
-        </DataTemplate>
 
         <DataTemplate DataType="{x:Type viewmodels:ClienteViewModel}">
             <local:ClienteView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodels:AnimalViewModel}">
+            <local:animalView/>
+        </DataTemplate>
+        
+        <DataTemplate DataType="{x:Type viewmodels:ConsultaViewModel}">
+            <local:ConsultaView/>
         </DataTemplate>
 
     </Window.Resources>
@@ -71,93 +68,47 @@
                 <StackPanel>
                     <!--Logo de la empresa-->
                     <StackPanel Orientation="Horizontal"
-                                Height="35"
+                                Height="50"
                                 Margin="15,25,0,40">
-                        <Image Height="30" Source="/Resources/Images/logo.png"/>
-                        <TextBlock Text="GenialApp"
+                        <Image Height="55" Source="C:\Users\alext\Desktop\AGUSTIN_2º\AAD\Gestion_Clinica_Veterinaria\Gestion_Clinica_Veterinaria\Resources\Images\perro5.png" Width="53" RenderTransformOrigin="0.483,0.304" Margin="-10,-8,0,0"/>
+                        <TextBlock Text="Clinica Veterinaria"
                                    Foreground="{StaticResource titleColor2}"
                                    FontSize="20"
                                    FontFamily="Montserrat"
                                    FontWeight="Medium"
                                    VerticalAlignment="Center"
-                                   Margin="10,0,0,0"/>
+                                   Margin="3,0,0,0"/>
                     </StackPanel>
 
                     <!--Menu Buttons-->
-                    <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="{StaticResource color1}"
-                                 IsChecked="True"
-                                 Command="{Binding ShowHomeViewComand}">
-
-                        <StackPanel Orientation="Horizontal">
-                            <fa:IconImage Icon="Home" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Dashboard" Style="{StaticResource menuButtonText}"/>
-                        </StackPanel>
-                    </RadioButton>
-
-                    <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="{StaticResource color2}"
-                                 Command="{Binding ShowCustomerViewComand}">
-
-                        <StackPanel Orientation="Horizontal">
-                            <fa:IconImage Icon="UserGroup" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Custommers" Style="{StaticResource menuButtonText}"/>
-                        </StackPanel>
-                    </RadioButton>
-
-                    <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="{StaticResource color3}"
-                                 Command="{Binding ShowCarViewComand}">
-
-                        <StackPanel Orientation="Horizontal">
-                            <fa:IconImage Icon="Truck" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Order" Style="{StaticResource menuButtonText}"/>
-                        </StackPanel>
-                    </RadioButton>
 
                     <RadioButton Style="{StaticResource menuButton}"
                                  Tag="{StaticResource color4}"
                                  Command="{Binding ShowClienteViewComand}">
 
                         <StackPanel Orientation="Horizontal">
-                            <fa:IconImage Icon="User" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Cliente" Style="{StaticResource menuButtonText}"/>
+                            <fa:IconImage Icon="UserGroup" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Clientes" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
 
                     <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="{StaticResource color5}">
+                                 Tag="{StaticResource color6}"
+                                 Command="{Binding ShowAnimalViewComand}">
 
                         <StackPanel Orientation="Horizontal">
-                            <fa:IconImage Icon="Box" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Stock" Style="{StaticResource menuButtonText}"/>
+                            <fa:IconImage Icon="Cat" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Animales" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
 
                     <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="{StaticResource color6}">
+                                 Tag="{StaticResource color9}"
+                                 Command="{Binding ShowConsultaViewComand}">
 
                         <StackPanel Orientation="Horizontal">
-                            <fa:IconImage Icon="Wallet" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Finnance" Style="{StaticResource menuButtonText}"/>
-                        </StackPanel>
-                    </RadioButton>
-
-                    <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="{StaticResource color7}">
-
-                        <StackPanel Orientation="Horizontal">
-                            <fa:IconImage Icon="PieChart" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Report" Style="{StaticResource menuButtonText}"/>
-                        </StackPanel>
-                    </RadioButton>
-
-                    <RadioButton Style="{StaticResource menuButton}"
-                                 Tag="{StaticResource color8}">
-
-                        <StackPanel Orientation="Horizontal">
-                            <fa:IconImage Icon="Tools" Style="{StaticResource menuButtonIcon}"/>
-                            <TextBlock Text="Settings" Style="{StaticResource menuButtonText}"/>
+                            <fa:IconImage Icon="KitMedical" Style="{StaticResource menuButtonIcon}"/>
+                            <TextBlock Text="Consulta" Style="{StaticResource menuButtonText}"/>
                         </StackPanel>
                     </RadioButton>
 
@@ -179,8 +130,6 @@
                     <Grid.RowDefinitions>
                         <!--Control Bar-->
                         <RowDefinition Height="25"/>
-                        <!--Header/ Caption-->
-                        <RowDefinition Height="35"/>
                         <!--Content Section-->
                         <RowDefinition Height="*"/>
                     </Grid.RowDefinitions>
@@ -220,13 +169,15 @@
 
 
                     <!--Header/ Caption-->
-                    <Grid Grid.Row="1">
+                    <!--<Grid Grid.Row="1">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition/>
                             <ColumnDefinition/>
                         </Grid.ColumnDefinitions>
 
-                        <!--Caption-->
+                        -->
+                    <!--Caption-->
+                    <!--
                         <StackPanel Grid.Column="0"
                                     Orientation="Horizontal"
                                     VerticalAlignment="Center">
@@ -244,7 +195,9 @@
 
                         </StackPanel>
 
-                        <!--User Options-->
+                        -->
+                    <!--User Options-->
+                    <!--
                         <StackPanel Grid.Column="1"
                                         Orientation="Horizontal"
                                         FlowDirection="RightToLeft"
@@ -262,15 +215,19 @@
 
                             </TextBlock>
                             
-                            <!--Ellipse Height="35" Width="35"
+                            -->
+                    <!--Ellipse Height="35" Width="35"
                                      Stroke="{StaticResource color2}"
                                      StrokeThickness="2"
                                      Margin="10,0,10,0"
                                      Fill="{StaticResource LogoBrush}">
-                                --><!--<Ellipse.Fill>
+                                -->
+                    <!--<Ellipse.Fill>
                                     <ImageBrush ImageSource="/Resources/Images/logo.png"/>
-                                </Ellipse.Fill>--><!--
+                                </Ellipse.Fill>-->
+                    <!--
                             </Ellipse>-->
+                    <!--
 
                             <Button Style="{StaticResource iconButton}" Tag="{StaticResource color3}">
                                 <fa:IconImage Icon="Clock" Style="{StaticResource iconButtonIcon}"/>
@@ -285,13 +242,13 @@
                             </Button>
 
                         </StackPanel>
-                    </Grid>
+                    </Grid>-->
 
 
                     <!--Content Section-->
                     <ContentControl Content="{Binding CurretChildView}"
-                                    Grid.Row="2"
-                                    Margin="25"/>
+                                    Grid.Row="1"
+                                    Margin="20,10,20,25"/>
 
                 </Grid>
             </Border>

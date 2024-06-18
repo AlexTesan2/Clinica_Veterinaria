@@ -27,44 +27,5 @@ namespace Gestion_Clinica_Veterinaria.Views
         {
             InitializeComponent();
         }
-
-
-
-
-
-
-
-
-
-        /*private void GuardarButton_Click(object sender, RoutedEventArgs e)
-        {
-            var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
-            optionsBuilder.UseSqlServer("Data Source=DESKTOP-1DSINV3;Initial Catalog=Veterinaria;Integrated Security=True;TrustServerCertificate=true");
-
-            using (var context = new ApplicationDbContext(optionsBuilder.Options))
-            {
-                context.Database.EnsureCreated();
-                var cliente = new ClienteModel
-                {
-                    NomCliente = NombreTextBox.Text,
-                    DNI = DNITextBox.Text,
-                    Telefono1 = int.Parse(TelefonoTextBox.Text),
-                    CodPostal = int.Parse(CodigoPostalTextBox.Text),
-                    Ciudad = "x",
-                    Comentario = "y",
-                    ProvinciaId = 1, 
-                    Direccion = "s",
-                    Email = "m",
-                    Telefono2 = 234,
-                };
-                context.Clientes.Add(cliente);
-                context.SaveChanges();
-
-                NombreTextBox.Text = "";
-                DNITextBox.Text = "";
-                TelefonoTextBox.Text = "";
-                CodigoPostalTextBox.Text = "";
-            }
-        }*/
     }
 }

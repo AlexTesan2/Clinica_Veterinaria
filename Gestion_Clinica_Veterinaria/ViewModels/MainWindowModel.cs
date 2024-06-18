@@ -14,9 +14,6 @@ namespace Gestion_Clinica_Veterinaria.ViewModels
     {
         //Campos
         private ViewModelBase _curretChildView;
-        private string _title;
-        private IconChar _icon;
-
 
         //Propiedades
         public ViewModelBase CurretChildView
@@ -28,69 +25,34 @@ namespace Gestion_Clinica_Veterinaria.ViewModels
                 OnPropertyChanged(nameof(CurretChildView));
             }
         }
-        public string Title
-        {
-            get => _title;
-            set
-            {
-                _title = value;
-                OnPropertyChanged(nameof(Title));
-            }
-
-
-        }
-        public IconChar Icon
-        {
-            get => _icon;
-            set
-            {
-                _icon = value;
-                OnPropertyChanged(nameof(Icon));
-            }
-        }
 
         //Comandos
-        public ICommand ShowHomeViewComand { get; }
-        public ICommand ShowCustomerViewComand { get; }
-        public ICommand ShowCarViewComand { get; }
         public ICommand ShowClienteViewComand { get; }
+        public ICommand ShowAnimalViewComand { get; }
+        public ICommand ShowConsultaViewComand { get; }
 
         public MainWindowModel()
         {
             //inicializar comandos
-            ShowHomeViewComand = new ViewModelCommand(ExecuteShowHomeViewComand);
-            ShowCustomerViewComand = new ViewModelCommand(ExecuteShowCustomerViewComand);
-            ShowCarViewComand = new ViewModelCommand(ExecuteShowCarViewComand);
             ShowClienteViewComand = new ViewModelCommand(ExecuteShowClienteViewComand);
-
+            ShowAnimalViewComand = new ViewModelCommand(ExecuteShowAnimalViewComand);
+            ShowConsultaViewComand = new ViewModelCommand(ExecuteShowConsultaViewComand);
 
             //vista por defecto
-            ExecuteShowHomeViewComand(null);
-        }
-
-        private void ExecuteShowHomeViewComand(object obj)
-        {
-            CurretChildView = new HomeViewModel();
-            Title = "Home";
-            Icon = IconChar.Home;
-        }
-        private void ExecuteShowCustomerViewComand(object obj)
-        {
-            CurretChildView = new CustomerViewModel();
-            Title = "Customers";
-            Icon = IconChar.UserGroup;
-        }
-        private void ExecuteShowCarViewComand(object obj)
-        {
-            CurretChildView = new CarViewModel();
-            Title = "Car";
-            Icon = IconChar.CarAlt;
+            ExecuteShowClienteViewComand(null);
         }
         private void ExecuteShowClienteViewComand(object obj)
         {
             CurretChildView = new ClienteViewModel();
-            Title = "Cliente";
-            Icon = IconChar.User;
+        }
+
+        private void ExecuteShowAnimalViewComand(object obj)
+        {
+            CurretChildView = new AnimalViewModel();
+        }
+        private void ExecuteShowConsultaViewComand(object obj)
+        {
+            CurretChildView = new ConsultaViewModel();
         }
     }
 }

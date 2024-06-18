@@ -7,25 +7,40 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Views\CarView.xaml.cs">
+    <Compile Update="Views\animalView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\ClienteView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Views\ConsultarAnimalView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Views\ConsultarClienteView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ConsultarConsultaView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\ConsultaView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\CrearAnimalView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\CrearClienteView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\CustomerView.xaml.cs">
+    <Compile Update="Views\CrearConsultaView.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Views\EditarAnimalView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Views\EditarClienteView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="Views\HomeView.xaml.cs">
+    <Compile Update="Views\EditarConsultaView.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -39,25 +54,40 @@
     <Page Update="Resources\Styles\Colors.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\CarView.xaml">
+    <Page Update="Views\animalView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\ClienteView.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Views\ConsultarAnimalView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="Views\ConsultarClienteView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ConsultarConsultaView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\ConsultaView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\CrearAnimalView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\CrearClienteView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\CustomerView.xaml">
+    <Page Update="Views\CrearConsultaView.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Views\EditarAnimalView.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Views\EditarClienteView.xaml">
       <SubType>Designer</SubType>
     </Page>
-    <Page Update="Views\HomeView.xaml">
+    <Page Update="Views\EditarConsultaView.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

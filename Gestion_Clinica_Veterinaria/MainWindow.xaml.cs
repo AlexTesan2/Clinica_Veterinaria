@@ -225,6 +225,7 @@ namespace Gestion_Clinica_Veterinaria
                     var otro = new RazaModel { EspecieId = 5, NomRaza = "Otro" };
                     context.Razas.Add(otro);
 
+                    //Clientes
                     var desarrollador = new ClienteModel
                     {
                         NomCliente = "Alex",
@@ -239,9 +240,207 @@ namespace Gestion_Clinica_Veterinaria
                         Provincia = "Zaragoza",
                         FechaAlta = DateAndTime.Today
                     };
-                    //context.Clientes.Add(desarrollador);
-                        
+                    var player1 = new ClienteModel
+                    {
+                        NomCliente = "Cristina",
+                        Ciudad = "Zaragoza",
+                        CodPostal = 5008,
+                        Comentario = "ce",
+                        Direccion = "ni",
+                        DNI = "0724545",
+                        Email = "za",
+                        Telefono1 = 1565,
+                        Telefono2 = 89090,
+                        Provincia = "Zaragoza",
+                        FechaAlta = DateAndTime.Today
+                    };
+                    var player2 = new ClienteModel
+                    {
+                        NomCliente = "Laura",
+                        Ciudad = "Rusia",
+                        CodPostal = 5022,
+                        Comentario = "s",
+                        Direccion = "o",
+                        DNI = "45678",
+                        Email = "s",
+                        Telefono1 = 1565,
+                        Telefono2 = 89090,
+                        Provincia = "Zaragoza",
+                        FechaAlta = DateAndTime.Today
+                    };
+                    context.Clientes.Add(desarrollador);
+                    context.Clientes.Add(player1);
+                    context.Clientes.Add(player2);
+
+
+
+                    //Productos
+                    var producto1 = new ProductoModel
+                    {
+                        NomProducto = "Amoxicillina",
+                        IdTipoProducto = 2, 
+                        NumLote = 55000,
+                        Comentario = "Pastilla"
+                    };
+                    var producto2 = new ProductoModel
+                    {
+                        NomProducto = "Vacuna Rabia",
+                        IdTipoProducto = 1,
+                        NumLote = 65000,
+                        Comentario = "Inyeccion intravenosa"
+                    }; 
+                    var producto3 = new ProductoModel
+                    {
+                        NomProducto = "Vacuna Leishmania",
+                        IdTipoProducto = 1,
+                        NumLote = 2500,
+                        Comentario = "Inyeccion intravenosa"
+                    };
+                    var producto4 = new ProductoModel
+                    {
+                        NomProducto = "Vacuna Hepatitis",
+                        IdTipoProducto = 1,
+                        NumLote = 2500,
+                        Comentario = "Inyeccion intravenosa"
+                    };
+                    var producto5 = new ProductoModel
+                    {
+                        NomProducto = "Ampicilina",
+                        IdTipoProducto = 2,
+                        NumLote = 75000,
+                        Comentario = "Pastilla2"
+                    };
+
                     context.SaveChanges();
+
+
+                    var animal1 = new AnimalModel
+                    {
+                        Especie = "Gato",
+                        Raza = "Persa",
+                        ColorOjos = "verdes",
+                        Chip = 555,
+                        Comentario = "",
+                        Edad = 3,
+                        Esterilizado = true,
+                        Peligroso = false,
+                        NomAnimal = "Muchi",
+                        IdTipoPelo = 3,
+                        NumPasaporte = 4567,
+                        Peso = 5,
+                        Sexo = "Macho",
+                        Vivo = true,
+                        Tamanyo = "normal",
+                        Cliente = "Alex",
+
+                    };
+                    var animal2 = new AnimalModel
+                    {
+                        Especie = "Perro",
+                        Raza= "Golden Retriever",
+                        ColorOjos = "azules",
+                        Chip = 645,
+                        Comentario = "",
+                        Edad = 5,
+                        Esterilizado = true,
+                        Peligroso = false,
+                        NomAnimal = "Laica",
+                        IdTipoPelo = 3,
+                        NumPasaporte = 4569,
+                        Peso = 5,
+                        Sexo = "Hembra",
+                        Vivo = true,
+                        Tamanyo = "normal",
+                        Cliente = "Laura",
+                    };
+                    var animal3 = new AnimalModel
+                    {
+                        Especie = "Gato",
+                        Raza = "Himalayo",
+                        ColorOjos = "verdes",
+                        Chip = 972,
+                        Comentario = "",
+                        Edad = 3,
+                        Esterilizado = true,
+                        Peligroso = false,
+                        NomAnimal = "Gato2",
+                        IdTipoPelo = 3,
+                        NumPasaporte = 4567,
+                        Peso = 5,
+                        Sexo = "Macho",
+                        Vivo = true,
+                        Tamanyo = "normal",
+                        Cliente = "Laura",
+                    };
+                    context.Animales.Add(animal3);
+                    context.Animales.Add(animal2);
+                    context.Animales.Add(animal1);
+
+                    var consulta1 = new ConsultaModel
+                    {
+                        Animal = "Gato",
+                        Cliente = "Laura",
+                        Comentario = "",
+                        Fecha = DateAndTime.Today,
+                        Precio = 55,
+                        Procedimiento = "Darle unas pastillas",
+                        Sintomas = "Mareos",
+                        TipoConsulta = "visita",
+                    };
+                    var consulta2 = new ConsultaModel
+                    {
+                        Animal = "Gato",
+                        Cliente = "Laura",
+                        Comentario = "",
+                        Fecha = DateAndTime.Today,
+                        Precio = 55,
+                        Procedimiento = "Colarle el pelo",
+                        Sintomas = "Pelo largo",
+                        TipoConsulta = "visita",
+                    }
+                    ; var consulta3 = new ConsultaModel
+                    {
+                        Animal = "Misifu",
+                        Cliente = "Alex",
+                        Comentario = "",
+                        Fecha = DateAndTime.Today,
+                        Precio = 55,
+                        Procedimiento = "bla bla bla",
+                        Sintomas = "Mareos",
+                        TipoConsulta = "visita",
+                    };
+                    var consulta4 = new ConsultaModel
+                    {
+                        Animal = "Luisito",
+                        Cliente = "Cristina",
+                        Comentario = "",
+                        Fecha = DateAndTime.Today,
+                        Precio = 55,
+                        Procedimiento = "Castracion",
+                        Sintomas = "",
+                        TipoConsulta = "Operacion",
+                    };
+                    var consulta5 = new ConsultaModel
+                    {
+                        Animal = "Ralf",
+                        Cliente = "Laura",
+                        Comentario = "",
+                        Fecha = DateAndTime.Today,
+                        Precio = 55,
+                        Procedimiento = "Antibionticos",
+                        Sintomas = "Picadura de serpiente",
+                        TipoConsulta = "visita",
+                    };
+                    
+                    context.Consultas.Add( consulta1 );
+                    context.Consultas.Add(consulta2);
+                    context.Consultas.Add(consulta3);
+                    context.Consultas.Add(consulta4);
+                    context.Consultas.Add(consulta5);
+
+
+                    context.SaveChanges();
+
 
                 }
             }

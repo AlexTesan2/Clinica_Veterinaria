@@ -29,6 +29,6 @@ namespace Gestion_Clinica_Veterinaria.Models
 
         [NotMapped]
         public List<int> ListaIdMascotasDelCliente { get; set; }
-        public List<AnimalModel> ListaMascotasDelCliente { get; set; }
+        public ICollection<AnimalModel> ListaMascotasDelCliente { get; set; }
     }
 }
