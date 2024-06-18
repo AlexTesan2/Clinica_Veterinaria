@@ -57,8 +57,6 @@ namespace Gestion_Clinica_Veterinaria.Views
         private void FiltrarAnimales()
         {
             var filtroNombre = BuscarNombreTextBox.Text.ToLower();
-            //var especieSeleccionada = BuscarEspecieComboBox.SelectedItem as EspecieModel;
-            //var razaSeleccionada = BuscarRazaComboBox.SelectedItem as RazaModel;
 
             var animalesFiltrados = _animales.Where(a =>
                 (string.IsNullOrWhiteSpace(filtroNombre) || a.NomAnimal.ToLower().Contains(filtroNombre)) 

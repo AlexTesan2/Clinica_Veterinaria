@@ -25,11 +25,11 @@
                         IsReadOnly="True" Margin="10,20,0,20">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Nombre" Binding="{Binding NomAnimal}" Width="*"/>
+                    <DataGridTextColumn Header="Cliente" Binding="{Binding Cliente}" Width="*"/>
+                    <DataGridTextColumn Header="Raza" Binding="{Binding Raza}" Width="*"/>
+                    <DataGridTextColumn Header="Especie" Binding="{Binding Especie}" Width="*"/>
                     <DataGridTextColumn Header="Sexo" Binding="{Binding Sexo}" Width="*"/>
-                    <DataGridTextColumn Header="Peso" Binding="{Binding Peso}" Width="*"/>
-                    <DataGridTextColumn Header="Tamaño" Binding="{Binding Tamanyo}" Width="*"/>
-                    <DataGridTextColumn Header="Fecha Nacimiento" Binding="{Binding FNac}" Width="*"/>
-                    <DataGridTextColumn Header="Peligroso" Binding="{Binding Peligroso}" Width="*"/>
+                    <DataGridTextColumn Header="TipoPelo" Binding="{Binding TipoPelo}" Width="*"/>
                     <DataGridTextColumn Header="Esterilizado" Binding="{Binding Esterilizado}" Width="*"/>
 
                     <DataGridTemplateColumn Header="Editar" Width="*">

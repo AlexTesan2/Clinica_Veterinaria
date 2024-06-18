@@ -20,13 +20,13 @@
 
 
         <StackPanel Grid.Column="0" Grid.Row="0">
-            <Grid Margin="15,0,15,-15">
-                <TextBlock x:Name="PlaceholderNombreTextBlock" Text="Nombre..." Foreground="Gray" 
+            <Grid Margin="15,10,15,-15">
+                <TextBlock x:Name="PlaceholderNombreTextBlock" Text="Nombre del Cliente o Animal " Foreground="Gray" 
                IsHitTestVisible="False"  HorizontalAlignment="Left"/>
-                <TextBox x:Name="BuscarNombreTextBox" Width="200" TextChanged="BuscarTextBox_TextChanged" HorizontalAlignment="Right" Margin="0,0,40,0"/>
+                <TextBox x:Name="BuscarNombreTextBox" Width="200" TextChanged="BuscarTextBox_TextChanged" HorizontalAlignment="Right" Margin="0,0,0,0"/>
             </Grid>
             <DataGrid x:Name="AnimalesDataGrid" AutoGenerateColumns="False" CanUserAddRows="False" 
-            IsReadOnly="True" Margin="10,20,0,20" SelectionMode="Single">
+            IsReadOnly="True" Margin="20,20,20,20" SelectionMode="Single">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Nombre" Binding="{Binding NomAnimal}" Width="*"/>
                     <DataGridTextColumn Header="Chip" Binding="{Binding Chip}" Width="*"/>

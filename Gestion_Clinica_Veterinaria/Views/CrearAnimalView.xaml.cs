@@ -101,12 +101,9 @@ namespace Gestion_Clinica_Veterinaria.Views
                     var especieSeleccionada = EspeciesComboBox.SelectedItem as EspecieModel;
                     var razaSeleccionada = RazasComboBox.SelectedItem as RazaModel;
                     var tipoPeloSeleccionado = PelosComboBox.SelectedItem as TipoPeloModel;
-
-                    if (especieSeleccionada == null || razaSeleccionada == null || tipoPeloSeleccionado == null)
-                    {
-                        MessageBox.Show("Debe seleccionar especie, raza y tipo de pelo válidos.", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                        return;
-                    }
+                    string nomRaza = razaSeleccionada?.NomRaza;
+                    string nomEspecie = especieSeleccionada?.NomEspecie;
+                    string pelo = tipoPeloSeleccionado?.NomTipoPelo;
 
                     int peso = 0;
                     if (!int.TryParse(PesoTextBox.Text, out peso))
@@ -128,7 +125,8 @@ namespace Gestion_Clinica_Veterinaria.Views
                     {
                         NomAnimal = NombreTextBox.Text,
                         Cliente = ClientesComboBox.Text,
-                        //IdRaza = razaSeleccionada.IdRaza,
+                        Raza = nomRaza,
+                        Especie = nomEspecie,
                         Sexo = (SexoComboBox.SelectedItem as ComboBoxItem)?.Content.ToString() ?? "",
                         Peso = peso,
                         Tamanyo = TamyoTextBox.Text,
@@ -137,10 +135,11 @@ namespace Gestion_Clinica_Veterinaria.Views
                         Peligroso = SiPeligroRadioButton.IsChecked ?? false,
                         Esterilizado = SiEsterilizadoRadioButton.IsChecked ?? false,
                         Vivo = true,
-                        IdTipoPelo = tipoPeloSeleccionado.IdTipoPelo,
-                        NumPasaporte = chip,
+                        TipoPelo = pelo,
+                        NumPasaporte = string.IsNullOrWhiteSpace(PasaporteTextBox.Text) ? 0 : int.Parse(PasaporteTextBox.Text),
                         ColorOjos = ColorOjosTextBox.Text,
-                        Comentario = ComentarioTextBox.Text
+                        Comentario = ComentarioTextBox.Text,
+                        Chip = chip,
                     };
 
                     context.Animales.Add(animal);
@@ -183,6 +182,7 @@ namespace Gestion_Clinica_Veterinaria.Views
             ChipTextBox.Text = "";
             ColorOjosTextBox.Text = "";
             ComentarioTextBox.Text = "";
+            PasaporteTextBox.Text = "";
         }
     }
 }

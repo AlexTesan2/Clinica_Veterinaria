@@ -7,6 +7,123 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-            
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Same layout as CrearAnimalView with bindings adjusted -->
+
+        <StackPanel Grid.Column="0" Grid.Row="0">
+            <TextBlock Text="Nombre" Margin="5,15,15,5" Width="88"></TextBlock>
+            <TextBox x:Name="NombreTextBox" Height="23" TextWrapping="Wrap" Margin="30,0,15,0" Width="120"/>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="0">
+            <TextBlock Text="Especie" Margin="5,15,15,5" Width="88"/>
+            <ComboBox x:Name="EspeciesComboBox" 
+              DisplayMemberPath="NomEspecie"
+              SelectedValuePath="NomEspecie"
+              SelectedValue="{Binding Id_Especie, Mode=TwoWay}"
+              Width="120"
+              Margin="30,0,15,0"/>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="0">
+            <TextBlock Text="Raza" Margin="5,15,15,5" Width="88"/>
+            <ComboBox x:Name="RazasComboBox" 
+              DisplayMemberPath="NomRaza"
+              SelectedValuePath="NomRaza"
+              SelectedValue="{Binding Id_Raza, Mode=TwoWay}"
+              Width="120"
+              Margin="30,0,15,0"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="0" Grid.Row="1">
+            <TextBlock Text="Sexo" Margin="5,15,15,5" Width="88"/>
+            <ComboBox x:Name="SexoComboBox" Width="120" Margin="30,0,15,0">
+                <ComboBoxItem Content="Macho" />
+                <ComboBoxItem Content="Hembra" />
+            </ComboBox>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="1">
+            <TextBlock Text="Pelo" Margin="5,15,15,5" Width="88"/>
+            <ComboBox x:Name="PelosComboBox" 
+                      DisplayMemberPath="NomTipoPelo"
+                      SelectedValuePath="NomTipoPelo"
+                      Width="120"
+                      Margin="30,0,15,0"/>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="1">
+            <TextBlock Text="Color de Ojos" Margin="5,15,15,5" Width="88"/>
+            <TextBox x:Name="ColorOjosTextBox" Height="23" Margin="30,0,15,0" Width="120"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" Margin="5,5,266,5">
+            <TextBlock Text="Dueño" Width="134"/>
+            <ComboBox x:Name="ClientesComboBox"
+                      DisplayMemberPath="NomCliente"
+                      SelectedValuePath="NomCliente"
+                      SelectedValue="{Binding IdCliente, Mode=TwoWay}"
+                      Width="133"
+                      Margin="5"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="2">
+            <TextBlock Text="Chip" Margin="5,15,15,5" Width="88"/>
+            <TextBox x:Name="ChipTextBox" Height="23" Margin="30,0,15,0" Width="120"/>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="2">
+            <TextBlock Text="Num Pasaporte" Margin="5,15,15,5" Width="88"/>
+            <TextBox x:Name="PasaporteTextBox" Height="23" Margin="30,0,15,0" Width="120"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="3">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Peso" Margin="10,15,88,5" Grid.Column="0" Grid.Row="1"/>
+                <TextBox x:Name="PesoTextBox" Height="23" Margin="79,15,67,5" Grid.Row="1" Grid.ColumnSpan="2"/>
+                <TextBlock Text="Tamaño" Margin="10,15,71,5" Grid.Column="0" Grid.Row="0"/>
+                <TextBox x:Name="TamyoTextBox" Margin="79,6,67,5" Grid.Row="0" Grid.ColumnSpan="2"/>
+            </Grid>
+        </StackPanel>
+
+        <StackPanel Grid.Column="2" Grid.Row="3">
+            <TextBlock Text="Fecha Nacimiento" Margin="5,15,15,5" Width="120"/>
+            <DatePicker x:Name="FechaNacimientoDatePicker" Width="200" Margin="30,0,15,0"/>
+        </StackPanel>
+        <StackPanel Grid.Column="0" Grid.Row="4" Orientation="Horizontal" VerticalAlignment="Center">
+            <TextBlock Text="Peligroso" Margin="5,5,15,5" Width="88"/>
+            <RadioButton x:Name="SiPeligroRadioButton" Content="Sí" Margin="-6,0,5,0" VerticalAlignment="Center" GroupName="GrupoPeligroso"/>
+            <RadioButton x:Name="NoPeligroRadioButton" Content="No" Margin="5,0,5,0" VerticalAlignment="Center" GroupName="GrupoPeligroso" IsChecked="True"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="4" Orientation="Horizontal" VerticalAlignment="Center">
+            <TextBlock Text="Esterilizado" Margin="5,5,15,5" Width="88"/>
+            <RadioButton x:Name="SiEsterilizadoRadioButton" Content="Sí" Margin="-6,0,5,0" VerticalAlignment="Center" GroupName="GrupoEsterilizado"/>
+            <RadioButton x:Name="NoEsterilizadoRadioButton" Content="No" Margin="5,0,5,0" VerticalAlignment="Center" GroupName="GrupoEsterilizado" IsChecked="True"/>
+        </StackPanel>
+        <StackPanel Grid.Column="2" Grid.Row="4">
+            <TextBlock Text="Comentario" Margin="5,15,15,5" Width="88"/>
+            <TextBox x:Name="ComentarioTextBox" Height="23" Margin="30,0,15,0" Width="120"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="5">
+            <Button x:Name="GuardarButton" Content="GUARDAR ANIMAL" Click="GuardarButton_Click" Width="120" Background="{StaticResource color9}"/>
+        </StackPanel>
     </Grid>
 </UserControl>

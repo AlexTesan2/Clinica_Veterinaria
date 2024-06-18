@@ -20,7 +20,7 @@ public class AnimalModel
     public bool Peligroso { get; set; }
     public bool Esterilizado { get; set; }
     public bool Vivo { get; set; }
-    public int IdTipoPelo { get; set; }
+    public string TipoPelo { get; set; }
     public int NumPasaporte { get; set; }
     public string ColorOjos { get; set; }
     public string Comentario { get; set; }
