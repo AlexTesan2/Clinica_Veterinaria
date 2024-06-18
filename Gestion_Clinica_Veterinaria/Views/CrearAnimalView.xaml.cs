@@ -97,7 +97,6 @@ namespace Gestion_Clinica_Veterinaria.Views
 
                 using (var context = new ApplicationDbContext(optionsBuilder.Options))
                 {
-                    // Validar campos y obtener valores del formulario
                     var especieSeleccionada = EspeciesComboBox.SelectedItem as EspecieModel;
                     var razaSeleccionada = RazasComboBox.SelectedItem as RazaModel;
                     var tipoPeloSeleccionado = PelosComboBox.SelectedItem as TipoPeloModel;

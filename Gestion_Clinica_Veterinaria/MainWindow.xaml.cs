@@ -83,6 +83,7 @@ namespace Gestion_Clinica_Veterinaria
 
         public static void CrearBD()
         {
+            //Inento no logrado de hacer una conexion BD mas limpia
             //var connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
             //var optionsBuilder = new DbContextOptionsBuilder<Context>();
             //optionsBuilder.UseSqlServer(connectionString);
@@ -95,6 +96,8 @@ namespace Gestion_Clinica_Veterinaria
             {
                 if (context.Database.EnsureCreated())
                 {
+                    //DATOS POR DEFECTO A INSERTAR EN LA BD AL CREARSE
+
                     //TipoProductoModelo
                     var vacuna = new TipoProductoModelo { NomTipoProducto = "Vacuna" };
                     context.TipoProductos.Add(vacuna);
@@ -232,9 +235,9 @@ namespace Gestion_Clinica_Veterinaria
                         Ciudad = "Zaragoza",
                         CodPostal = 5004,
                         Comentario = "Soy el programador",
-                        Direccion = "No te importa",
+                        Direccion = "Calle 2",
                         DNI = "0724545",
-                        Email = "email",
+                        Email = "alex@gmail.com",
                         Telefono1=12345,
                         Telefono2=67890,
                         Provincia = "Zaragoza",
@@ -245,10 +248,10 @@ namespace Gestion_Clinica_Veterinaria
                         NomCliente = "Cristina",
                         Ciudad = "Zaragoza",
                         CodPostal = 5008,
-                        Comentario = "ce",
-                        Direccion = "ni",
+                        Comentario = "",
+                        Direccion = "Plaza ...",
                         DNI = "0724545",
-                        Email = "za",
+                        Email = "c@email.com",
                         Telefono1 = 1565,
                         Telefono2 = 89090,
                         Provincia = "Zaragoza",
@@ -257,20 +260,66 @@ namespace Gestion_Clinica_Veterinaria
                     var player2 = new ClienteModel
                     {
                         NomCliente = "Laura",
-                        Ciudad = "Rusia",
+                        Ciudad = "Murcia",
                         CodPostal = 5022,
-                        Comentario = "s",
-                        Direccion = "o",
+                        Comentario = "",
+                        Direccion = "Muy lejos",
                         DNI = "45678",
-                        Email = "s",
+                        Email = "lau@gmail.com",
                         Telefono1 = 1565,
                         Telefono2 = 89090,
-                        Provincia = "Zaragoza",
+                        Provincia = "Murcia",
+                        FechaAlta = DateAndTime.Today
+                    };
+                    var player3 = new ClienteModel
+                    {
+                        NomCliente = "Carlos",
+                        Ciudad = "Toledo",
+                        CodPostal = 5022,
+                        Comentario = "",
+                        Direccion = "Casa de ..",
+                        DNI = "455678",
+                        Email = "carl@gmail.com",
+                        Telefono1 = 14565,
+                        Telefono2 = 869090,
+                        Provincia = "Toledo",
+                        FechaAlta = DateAndTime.Today
+                    };
+
+                    var player4 = new ClienteModel
+                    {
+                        NomCliente = "Rocio",
+                        Ciudad = "Italia",
+                        CodPostal = 5022,
+                        Comentario = "",
+                        Direccion = "Muy lejos",
+                        DNI = "45678",
+                        Email = "lau@gmail.com",
+                        Telefono1 = 1565,
+                        Telefono2 = 89090,
+                        Provincia = "Madrid",
+                        FechaAlta = DateAndTime.Today
+                    };
+                    var player5 = new ClienteModel
+                    {
+                        NomCliente = "Adrian",
+                        Ciudad = "Samper",
+                        CodPostal = 5022,
+                        Comentario = "",
+                        Direccion = "Por abajo",
+                        DNI = "45678",
+                        Email = "adri@gmail.com",
+                        Telefono1 = 1565,
+                        Telefono2 = 89090,
+                        Provincia = "Teruel",
                         FechaAlta = DateAndTime.Today
                     };
                     context.Clientes.Add(desarrollador);
                     context.Clientes.Add(player1);
                     context.Clientes.Add(player2);
+                    context.Clientes.Add(player3); 
+                    context.Clientes.Add(player4);
+                    context.Clientes.Add(player5);
 
 
 
@@ -325,7 +374,7 @@ namespace Gestion_Clinica_Veterinaria
                         Esterilizado = true,
                         Peligroso = false,
                         NomAnimal = "Muchi",
-                        TipoPelo = "corto",
+                        TipoPelo = "Rizado",
                         NumPasaporte = 4567,
                         Peso = 5,
                         Sexo = "Macho",
@@ -345,7 +394,7 @@ namespace Gestion_Clinica_Veterinaria
                         Esterilizado = true,
                         Peligroso = false,
                         NomAnimal = "Laica",
-                        TipoPelo = "largo",
+                        TipoPelo = "Rizado",
                         NumPasaporte = 4569,
                         Peso = 5,
                         Sexo = "Hembra",
@@ -357,14 +406,14 @@ namespace Gestion_Clinica_Veterinaria
                     {
                         Especie = "Gato",
                         Raza = "Himalayo",
-                        ColorOjos = "verdes",
+                        ColorOjos = "rojos",
                         Chip = 972,
                         Comentario = "",
                         Edad = 3,
                         Esterilizado = true,
                         Peligroso = false,
-                        NomAnimal = "Gato2",
-                        TipoPelo = "rizado",
+                        NomAnimal = "Paritas",
+                        TipoPelo = "Corto",
                         NumPasaporte = 4567,
                         Peso = 5,
                         Sexo = "Macho",
@@ -372,64 +421,165 @@ namespace Gestion_Clinica_Veterinaria
                         Tamanyo = "normal",
                         Cliente = "Laura",
                     };
+                    var animal4 = new AnimalModel
+                    {
+                        Especie = "Gato",
+                        Raza = "Bengala",
+                        ColorOjos = "verdes",
+                        Chip = 972,
+                        Comentario = "",
+                        Edad = 3,
+                        Esterilizado = true,
+                        Peligroso = false,
+                        NomAnimal = "Superman",
+                        TipoPelo = "Corto",
+                        NumPasaporte = 4567,
+                        Peso = 5,
+                        Sexo = "Macho",
+                        Vivo = true,
+                        Tamanyo = "normal",
+                        Cliente = "Rocio",
+                    };
+                    var animal5 = new AnimalModel
+                    {
+                        Especie = "Perro",
+                        Raza = "Pug",
+                        ColorOjos = "marrones",
+                        Chip = 972,
+                        Comentario = "",
+                        Edad = 3,
+                        Esterilizado = true,
+                        Peligroso = false,
+                        NomAnimal = "Ralf",
+                        TipoPelo = "Duro",
+                        NumPasaporte = 4567,
+                        Peso = 5,
+                        Sexo = "Macho",
+                        Vivo = true,
+                        Tamanyo = "normal",
+                        Cliente = "Alex",
+                    };
+                    var animal6 = new AnimalModel
+                    {
+                        Especie = "Perro",
+                        Raza = "Dálmata",
+                        ColorOjos = "azules",
+                        Chip = 972,
+                        Comentario = "",
+                        Edad = 3,
+                        Esterilizado = true,
+                        Peligroso = false,
+                        NomAnimal = "Dalmata",
+                        TipoPelo = "Semilargo",
+                        NumPasaporte = 4567,
+                        Peso = 5,
+                        Sexo = "Macho",
+                        Vivo = true,
+                        Tamanyo = "normal",
+                        Cliente = "Adrian",
+                    };
+                    var animal7 = new AnimalModel
+                    {
+                        Especie = "Perro",
+                        Raza = "Pastor Alemán",
+                        ColorOjos = "verdes",
+                        Chip = 972,
+                        Comentario = "",
+                        Edad = 3,
+                        Esterilizado = true,
+                        Peligroso = false,
+                        NomAnimal = "Libre",
+                        TipoPelo = "Doble",
+                        NumPasaporte = 4567,
+                        Peso = 5,
+                        Sexo = "Macho",
+                        Vivo = true,
+                        Tamanyo = "normal",
+                        Cliente = "Carlos",
+                    };
+                    var animal8 = new AnimalModel
+                    {
+                        Especie = "Perro",
+                        Raza = "Bulldog Francés",
+                        ColorOjos = "verdes",
+                        Chip = 97342,
+                        Comentario = "",
+                        Edad = 3,
+                        Esterilizado = true,
+                        Peligroso = false,
+                        NomAnimal = "Rufus",
+                        TipoPelo = "Semilargo",
+                        NumPasaporte = 4567,
+                        Peso = 5,
+                        Sexo = "Hembra",
+                        Vivo = true,
+                        Tamanyo = "normal",
+                        Cliente = "Rocio",
+                    };
                     context.Animales.Add(animal3);
                     context.Animales.Add(animal2);
                     context.Animales.Add(animal1);
+                    context.Animales.Add(animal4);
+                    context.Animales.Add(animal5);
+                    context.Animales.Add(animal6);
+                    context.Animales.Add(animal7);
+                    context.Animales.Add(animal8);
+
 
                     var consulta1 = new ConsultaModel
                     {
-                        Animal = "Gato",
+                        Animal = "Laica",
                         Cliente = "Laura",
                         Comentario = "",
                         Fecha = DateAndTime.Today,
                         Precio = 55,
                         Procedimiento = "Darle unas pastillas",
                         Sintomas = "Mareos",
-                        TipoConsulta = "visita",
+                        TipoConsulta = "Visita",
                     };
                     var consulta2 = new ConsultaModel
                     {
-                        Animal = "Gato",
-                        Cliente = "Laura",
+                        Animal = "Superman",
+                        Cliente = "Rocio",
                         Comentario = "",
                         Fecha = DateAndTime.Today,
                         Precio = 55,
                         Procedimiento = "Colarle el pelo",
                         Sintomas = "Pelo largo",
-                        TipoConsulta = "visita",
+                        TipoConsulta = "Visita",
                     }
                     ; var consulta3 = new ConsultaModel
                     {
-                        Animal = "Misifu",
-                        Cliente = "Alex",
+                        Animal = "Laica",
+                        Cliente = "Laura",
                         Comentario = "",
                         Fecha = DateAndTime.Today,
                         Precio = 55,
                         Procedimiento = "bla bla bla",
                         Sintomas = "Mareos",
-                        TipoConsulta = "visita",
+                        TipoConsulta = "Visita",
                     };
                     var consulta4 = new ConsultaModel
                     {
-                        Animal = "Luisito",
-                        Cliente = "Cristina",
+                        Animal = "Dalmata",
+                        Cliente = "Adrian",
                         Comentario = "",
                         Fecha = DateAndTime.Today,
                         Precio = 55,
-                        Procedimiento = "Castracion",
+                        Procedimiento = "",
                         Sintomas = "",
                         TipoConsulta = "Operacion",
                     };
                     var consulta5 = new ConsultaModel
                     {
                         Animal = "Ralf",
-                        Cliente = "Laura",
+                        Cliente = "Alex",
                         Comentario = "",
                         Fecha = DateAndTime.Today,
                         Precio = 55,
                         Procedimiento = "Antibionticos",
                         Sintomas = "Picadura de serpiente",
-                        TipoConsulta = "visita",
+                        TipoConsulta = "Visita",
                     };
                     
                     context.Consultas.Add( consulta1 );
@@ -456,13 +606,4 @@ namespace Gestion_Clinica_Veterinaria
 
         }
     }
-}/*
-  si var connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;=
-connectionString = "Data Source=DESKTOP-1DSINV3;Initial Catalog=GestionVeterinaria;Integrated Security=True;TrustServerCertificate=true"
-var optionsBuilder = new DbContextOptionsBuilder<Context>();  = optionsBuilder = {Microsoft.EntityFrameworkCore.DbContextOptionsBuilder`1[Gestion_Clinica_Veterinaria.DB.Context]}
-optionsBuilder.UseSqlServer(connectionString);
-
-using (var context = new Context(optionsBuilder.Options)) = context = {Gestion_Clinica_Veterinaria.DB.Context}
-
-  
-  */
+}

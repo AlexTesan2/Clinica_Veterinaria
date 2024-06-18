@@ -63,11 +63,10 @@ namespace Gestion_Clinica_Veterinaria.Views
                 context.Consultas.Add(Consulta);
                 context.SaveChanges();
 
-                // Limpiar los campos después de guardar
+                
                 PrecioTextBox.Text = "";
                 ProcedimientoTextBox.Text = "";
                 SintomasTextBox.Text = "";
-                //ProvinciaComboBox.SelectedIndex = -1;
             }
         }
 

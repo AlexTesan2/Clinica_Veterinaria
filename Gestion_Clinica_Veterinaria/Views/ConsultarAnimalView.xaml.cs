@@ -17,7 +17,10 @@ namespace Gestion_Clinica_Veterinaria.Views
         {
             InitializeComponent();
             CargarAnimales();
-            //CargarEspecies();
+            CargarEspecies();
+            EspeciesComboBox.SelectionChanged += EspeciesComboBox_SelectionChanged;
+            RazasComboBox.SelectionChanged += RazasComboBox_SelectionChanged;
+            BuscarNombreTextBox.TextChanged += BuscarTextBox_TextChanged;
         }
 
         private void CargarAnimales()
@@ -27,7 +30,6 @@ namespace Gestion_Clinica_Veterinaria.Views
 
             using (var context = new ApplicationDbContext(optionsBuilder.Options))
             {
-                //_animales = context.Animales.Include(a => a.Especie).Include(a => a.Raza).ToList();
                 _animales = context.Animales.ToList();
                 AnimalesDataGrid.ItemsSource = _animales;
             }
@@ -40,26 +42,64 @@ namespace Gestion_Clinica_Veterinaria.Views
 
             using (var context = new ApplicationDbContext(optionsBuilder.Options))
             {
-                //BuscarEspecieComboBox.ItemsSource = context.Especies.ToList();
+                EspeciesComboBox.ItemsSource = context.Especies.ToList();
             }
+        }
+
+        private void CargarRazas()
+        {
+            var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
+            optionsBuilder.UseSqlServer("Data Source=DESKTOP-1DSINV3;Initial Catalog=Veterinaria;Integrated Security=True;TrustServerCertificate=true");
+
+            using (var context = new ApplicationDbContext(optionsBuilder.Options))
+            {
+                RazasComboBox.ItemsSource = context.Razas.ToList();
+            }
+        }
+
+        private void EspeciesComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var especieSeleccionada = EspeciesComboBox.SelectedItem as EspecieModel;
+
+            if (especieSeleccionada != null)
+            {
+                var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
+                optionsBuilder.UseSqlServer("Data Source=DESKTOP-1DSINV3;Initial Catalog=Veterinaria;Integrated Security=True;TrustServerCertificate=true");
+
+                using (var context = new ApplicationDbContext(optionsBuilder.Options))
+                {
+                    var razas = context.Razas.Where(r => r.EspecieId == especieSeleccionada.Id_Especie).ToList();
+                    RazasComboBox.ItemsSource = razas;
+                }
+            }
+            else
+            {
+                CargarAnimales();
+            }
+
+            FiltrarAnimales();
+        }
+
+        public void RazasComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            FiltrarAnimales();
         }
 
         private void BuscarTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //FiltrarAnimales();
-        }
-
-        private void BuscarComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-           // FiltrarAnimales();
+            FiltrarAnimales();
         }
 
         private void FiltrarAnimales()
         {
             var filtroNombre = BuscarNombreTextBox.Text.ToLower();
+            var especieSeleccionada = EspeciesComboBox.SelectedItem as EspecieModel;
+            var razaSeleccionada = RazasComboBox.SelectedItem as RazaModel;
 
             var animalesFiltrados = _animales.Where(a =>
-                (string.IsNullOrWhiteSpace(filtroNombre) || a.NomAnimal.ToLower().Contains(filtroNombre)) 
+                (string.IsNullOrWhiteSpace(filtroNombre) || a.NomAnimal.ToLower().Contains(filtroNombre)) &&
+                (especieSeleccionada == null || a.Especie == especieSeleccionada.NomEspecie) &&
+                (razaSeleccionada == null || a.Raza == razaSeleccionada.NomRaza)
             ).ToList();
 
             AnimalesDataGrid.ItemsSource = animalesFiltrados;
@@ -82,7 +122,6 @@ namespace Gestion_Clinica_Veterinaria.Views
                 CargarAnimales();
             }
         }
-
 
         private void EliminarButton_Click(object sender, RoutedEventArgs e)
         {

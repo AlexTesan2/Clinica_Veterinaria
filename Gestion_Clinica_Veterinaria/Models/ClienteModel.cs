@@ -18,8 +18,6 @@ namespace Gestion_Clinica_Veterinaria.Models
         public string? Email { get; set; }
         public int? Telefono1 { get; set; }
         public int? Telefono2 { get; set; }
-
-        //public ProvinciaModel ProvinciaDelUsuario { get; set; }
         public string? Provincia { get; set; }
         public string? Ciudad { get; set; }
         public string? Direccion { get; set; }

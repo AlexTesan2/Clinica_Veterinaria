@@ -79,7 +79,7 @@ namespace Gestion_Clinica_Veterinaria.Views
             }
 
             MessageBox.Show("Cliente actualizado con éxito", "Éxito", MessageBoxButton.OK, MessageBoxImage.Information);
-            Window.GetWindow(this).Close(); // Close the edit window
+            Window.GetWindow(this).Close();
         }
     }
 }

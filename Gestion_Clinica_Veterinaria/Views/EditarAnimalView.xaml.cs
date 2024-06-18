@@ -80,6 +80,7 @@ namespace Gestion_Clinica_Veterinaria.Views
             }
         }
 
+
         private void CargarPelos()
         {
             var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
@@ -102,6 +103,7 @@ namespace Gestion_Clinica_Veterinaria.Views
                 var especies = context.Especies.ToList();
                 EspeciesComboBox.ItemsSource = especies;
             }
+            EspeciesComboBox.SelectionChanged += EspeciesComboBox_SelectionChanged;
         }
 
         private void CargarRazas()
@@ -115,6 +117,28 @@ namespace Gestion_Clinica_Veterinaria.Views
                 RazasComboBox.ItemsSource = razas;
             }
         }
+
+        private void EspeciesComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var especieSeleccionada = EspeciesComboBox.SelectedItem as EspecieModel;
+
+            if (especieSeleccionada != null)
+            {
+                var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
+                optionsBuilder.UseSqlServer("Data Source=DESKTOP-1DSINV3;Initial Catalog=Veterinaria;Integrated Security=True;TrustServerCertificate=true");
+
+                using (var context = new ApplicationDbContext(optionsBuilder.Options))
+                {
+                    var razas = context.Razas.Where(r => r.EspecieId == especieSeleccionada.Id_Especie).ToList();
+                    RazasComboBox.ItemsSource = razas;
+                }
+            }
+            else
+            {
+                CargarRazas();
+            }
+        }
+
 
         private void CargarClientes()
         {

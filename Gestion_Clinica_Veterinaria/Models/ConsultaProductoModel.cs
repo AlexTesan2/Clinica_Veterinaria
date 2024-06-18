@@ -18,7 +18,6 @@ namespace Gestion_Clinica_Veterinaria.Models
         public int IdConsulta { get; set; }
         public ConsultaModel Consulta { get; set; }
 
-
         public int IdProducto { get; set; }
         public ProductoModel Producto { get; set; }
     }

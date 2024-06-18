@@ -12,11 +12,8 @@
         WindowStyle="None"
         Background="Transparent"
         AllowsTransparency="True">
-    <!--
-        d:DataContext="{d:DesignInstance Type=viewmodels:MainWindowModel}"
-    -->
 
-    <!--Vista por defecto: la MainWindow-->
+    <!--Este es su vista-modelo-->
     <Window.DataContext>
         <viewmodels:MainWindowModel/>
     </Window.DataContext>
@@ -166,85 +163,6 @@
                         </Button>
 
                     </StackPanel>
-
-
-                    <!--Header/ Caption-->
-                    <!--<Grid Grid.Row="1">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition/>
-                            <ColumnDefinition/>
-                        </Grid.ColumnDefinitions>
-
-                        -->
-                    <!--Caption-->
-                    <!--
-                        <StackPanel Grid.Column="0"
-                                    Orientation="Horizontal"
-                                    VerticalAlignment="Center">
-                            <fa:IconImage Icon="{Binding Icon}"
-                                          Width="20"
-                                          Height="20"
-                                          Foreground="{StaticResource titleColor2}"
-                                          Margin="35,0,10,0"/>
-                            <TextBlock Text="{Binding Title}"
-                                       FontSize="16"
-                                       Foreground="{StaticResource titleColor2}"
-                                       FontFamily="Montserrat"
-                                       FontWeight="Medium"
-                                       VerticalAlignment="Center"/>
-
-                        </StackPanel>
-
-                        -->
-                    <!--User Options-->
-                    <!--
-                        <StackPanel Grid.Column="1"
-                                        Orientation="Horizontal"
-                                        FlowDirection="RightToLeft"
-                                        VerticalAlignment="Center"
-                                        Margin="0,0,10,0">
-
-                            <Button Style="{StaticResource iconButton}" Tag="{StaticResource color1}">
-                                <fa:IconImage Icon="AngleDown" Style="{StaticResource iconButtonIcon}" Width="12" Height="12"/>
-                            </Button>
-                            <TextBlock  Text="Username"
-                                        Foreground="{StaticResource titleColor3}"
-                                        FontFamily="Montserrat"
-                                        FontSize="12"
-                                        VerticalAlignment="Center">
-
-                            </TextBlock>
-                            
-                            -->
-                    <!--Ellipse Height="35" Width="35"
-                                     Stroke="{StaticResource color2}"
-                                     StrokeThickness="2"
-                                     Margin="10,0,10,0"
-                                     Fill="{StaticResource LogoBrush}">
-                                -->
-                    <!--<Ellipse.Fill>
-                                    <ImageBrush ImageSource="/Resources/Images/logo.png"/>
-                                </Ellipse.Fill>-->
-                    <!--
-                            </Ellipse>-->
-                    <!--
-
-                            <Button Style="{StaticResource iconButton}" Tag="{StaticResource color3}">
-                                <fa:IconImage Icon="Clock" Style="{StaticResource iconButtonIcon}"/>
-                            </Button>
-
-                            <Button Style="{StaticResource iconButton}" Tag="{StaticResource color4}">
-                                <fa:IconImage Icon="Envelope" Style="{StaticResource iconButtonIcon}"/>
-                            </Button>
-
-                            <Button Style="{StaticResource iconButton}" Tag="{StaticResource color5}">
-                                <fa:IconImage Icon="Bell" Style="{StaticResource iconButtonIcon}"/>
-                            </Button>
-
-                        </StackPanel>
-                    </Grid>-->
-
-
                     <!--Content Section-->
                     <ContentControl Content="{Binding CurretChildView}"
                                     Grid.Row="1"

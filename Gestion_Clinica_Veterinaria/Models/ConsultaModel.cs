@@ -13,8 +13,6 @@ namespace Gestion_Clinica_Veterinaria.Models
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdConsulta { get; set; }
-
-        //public AnimalModel Animal { get; set; }
         public string Animal { get; set; }
         public string Cliente { get; set; }
         public string TipoConsulta { get; set; }
@@ -22,9 +20,6 @@ namespace Gestion_Clinica_Veterinaria.Models
         public string Sintomas { get; set; }
         public string Procedimiento { get; set; }
         public string Comentario { get; set; }
-
         public int Precio { get; set;}
-
-
     }
 }

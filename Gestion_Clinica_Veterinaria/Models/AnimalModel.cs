@@ -24,12 +24,4 @@ public class AnimalModel
     public int NumPasaporte { get; set; }
     public string ColorOjos { get; set; }
     public string Comentario { get; set; }
-
-
-    //[ForeignKey("IdRaza")]
-    //public RazaModel Raza { get; set; }
-    //public EspecieModel Especie { get; set; }
-
-    //[ForeignKey("IdClienteDelAnimal")]
-    //public ClienteModel ClienteDelAnimal { get; set; }
 }
